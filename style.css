@@ -26,15 +26,18 @@ body {
 
 div.gallery {
     margin: 10px;
+    margin-left: 5%;
+    margin-top: 10%;
     border: 1px solid #ccc;
     float: left;
-    width: 500px;
+    width: 40%;
     /* padding-top: 400px; */
   }
   
   div.gallery img {
     width: 100%;
     height: auto;
+    
   }
   
   div.desc {
@@ -83,7 +86,7 @@ header {
 }
 
 footer {
-    position: absolute;
+    position: fixed;
     left: 1.5rem;
     bottom: 1.5rem;
     width: calc(100vw - 15rem);
