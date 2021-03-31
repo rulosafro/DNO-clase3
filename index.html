@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Diseño y nuevos medios, segunda versión remota" />
+        <link href="style.css" rel="stylesheet" />
+        <title>&#128397; DNO037 | Evalución Nº1</title>
+        <link rel="icon" type="image/png" href="web-browser.png">
+    </head>
+    <body class="index">
+        <header>
+            <div>
+                <h1>&#128126; <span>PaintWeb101</span></h1>
+            </div>
+            <div></div>
+            <div></div>
+        </header>
+        <main></main>
+        <footer>    
+            <div id="menu"></div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.min.js"></script>
+        <script>
+            var main = document.querySelector("main");
+            var footer = document.querySelector("footer");
+            var menuColor = document.getElementsByTagName("div")[1];
+            var menuGrosor = document.getElementsByTagName("div")[2];
+            var menuDescargar = document.getElementsByTagName("div")[3];
+            var colorido, grosor, descarga;
+
+            var selector
+            if (document.body.classList.contains("index")) {
+                selector = 1;
+            } else if (document.body.classList.contains("pagina")) { 
+                selector = 2;
+            }
+
+            function setup() {
+                createCanvas(windowWidth, windowHeight).parent(main);
+                createA("index.html", "  index  ").parent("menu");
+                createA("page.html", "  page  ").parent("menu");
+                background(205,205,205);
+                // COLOR DE PICKER
+                colorido = createColorPicker("#4056ff").parent(menuColor);
+                // contrast ratio 5.25
+                createSpan("Grosor ").parent(menuGrosor);
+                grosor = createSelect().parent(menuGrosor);
+                grosor.option("Thin", 1);
+                grosor.option("Extra Light", 2);
+                grosor.option("Light", 3);
+                grosor.option("Normal", 4);
+                grosor.option("Medium", 5);
+                grosor.option("Semi Bold", 6);
+                grosor.option("Bold", 7);
+                grosor.option("Extra Bold", 8);
+                grosor.option("Black", 9);
+                grosor.selected(4);
+                descarga = createButton("Inmortalizar esta obra de arte").parent(main);
+                descarga.mousePressed(descargar);
+                instructivo();
+                }
+
+            function draw() {
+                stroke(colorido.color());
+                strokeWeight(grosor.value());
+                if (mouseIsPressed) {
+                    line(pmouseX, pmouseY, mouseX, mouseY);
+                }
+            }
+
+            function index(){
+                select("a:nth-child(1)").style("color", "#000000");
+            }
+            function pagina() {
+                select("a:nth-child(2)").style("color", "#000000");
+            }
+
+            // funcion de descargar
+                function descargar() {
+                saveCanvas("Obra de arte","jpg")
+            }
+            
+            function instructivo(){
+                alert("Bienvenido, PaintWeb101 es una web pensada para jovenes que quieran distender su tiempo durante clases.")
+            }
+        </script>
+    </body>
+</html>

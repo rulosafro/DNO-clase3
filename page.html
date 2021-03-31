@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Diseño y nuevos medios, segunda versión remota" />
+        <link href="style.css" rel="stylesheet" />
+        <title>&#128397; DNO037 | Evalución Nº1</title>
+        <link rel="icon" type="image/png" href="web-browser.png">
+    </head>
+        <body class="page" style="background-color:rgb(205,205,205);">  
+
+            <div class="gallery">
+                  <img src="Obra de arte.jpg" alt="Cinque Terre" width="600" height="400">
+                <div class="desc">Add a description of the image here</div>
+              </div>
+              
+              <div class="gallery">
+                  <img src="Obra de arte.jpg" alt="Forest" width="600" height="400">
+                <div class="desc">Add a description of the image here</div>
+              </div>
+              
+              <div class="gallery">
+                  <img src="Obra de arte.jpg" alt="Northern Lights" width="600" height="400">
+                  <div class="desc">Add a description of the image here</div>
+              </div>
+        </body>
+        <header>
+            <div>
+                <h1>&#128126; <span>PaintWeb101</span></h1>
+            </div>
+            <div></div>
+            <div></div>
+        </header>
+        <main>
+            <!-- <p1>            
+                <figure>
+                <img src="dibujo1.jpg" class="centrado">
+                <img src="dibujo2.jpg" class="centrado">
+                <img src="dibujo3.jpg" class="centrado">
+                </figure>
+            </p1> -->
+        </main>
+
+        <footer>
+            <div id="menu"></div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.min.js"></script>
+        <script>
+            var main = document.querySelector("main");
+            var footer = document.querySelector("footer");
+            var menuColor = document.getElementsByTagName("div")[1];
+            var menuGrosor = document.getElementsByTagName("div")[2];
+            var menuDescargar = document.getElementsByTagName("div")[3];
+            var colorido, grosor, descarga;
+
+            var selector
+            if (document.body.classList.contains("index")) {
+                selector = 1;
+            } else if (document.body.classList.contains("pagina")) { 
+                selector = 2;
+            }
+
+            function setup() {
+                createCanvas(windowWidth, windowHeight).parent(main);
+                createA("index.html", "  index  ").parent("menu");
+                createA("page.html", "  page  ").parent("menu");
+                // background(205);
+                // // para que el constraste se mantega
+            }
+
+            function index(){
+                select("a:nth-child(1)").style("font-weight", "bold").style("color", "#000000");
+            }
+            function pagina() {
+                select("a:nth-child(2)").style("font-weight", "bold").style("color", "#000000");
+            }
+
+        </script>
+    </body>
+</html>
